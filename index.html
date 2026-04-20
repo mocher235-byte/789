@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金名文理補習班 - 國中部專業課程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #fffafb;
+        }
+        /* 學科配色 */
+        .subject-math { background-color: #eff6ff; border-left: 5px solid #2563eb; color: #1e3a8a; }
+        .subject-english { background-color: #f0fdf4; border-left: 5px solid #16a34a; color: #14532d; }
+        .subject-science { background-color: #faf5ff; border-left: 5px solid #7c3aed; color: #4c1d95; }
+        .empty-slot { color: #e2e8f0; font-size: 0.85rem; }
+        
+        .tab-active {
+            background-color: #ffffff;
+            color: #b91c1c;
+            border-bottom: 3px solid #b91c1c;
+            font-weight: 700;
+        }
+
+        /* 榮譽榜跑馬燈動畫 */
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-scroll {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 35s linear infinite;
+        }
+        
+        /* 3D 浮動按鈕動畫 */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .float-3d {
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), inset 0 -4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .float-3d:hover {
+            transform: scale(1.1) translateY(-15px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3), inset 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background: white; padding: 0; }
+            .max-w-6xl { max-width: 100%; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- LINE 3D 浮標 -->
+    <a href="https://line.me/ti/p/vQcf6cONnl" target="_blank" class="no-print fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-[#06C755] rounded-full float-3d border-2 border-white">
+        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.185 1.039.646 1.281-.54 6.911-4.069 9.428-6.967 1.939-2.13 2.571-3.953 2.571-5.991z"/>
+        </svg>
+    </a>
+
+    <!-- Honor Roll Marquee -->
+    <div class="no-print w-full bg-red-700 text-white py-2.5 mb-8 overflow-hidden relative shadow-inner">
+        <div class="animate-scroll font-bold text-sm uppercase tracking-wider">
+            🏆 狂賀！Peggy 榮獲國中教育會考【全國榜首】錄取北一女！ 🐱 「只要妳考到90分，我就去養一隻貓給妳玩！」總班主任陪伴學子創造奇蹟！ 🔥 義民茗哲 數學滿分100！ 🌟 竹北國中宜芳 段考滿分！ 
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+            <div class="flex items-center gap-4 md:gap-6">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-md border border-amber-200">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjRqKCNWrsH37nthSraJgRc4iUslqv0Pw0urBa9ZwTuV3CLiliGNWjV3EddlJwJ7ox07Uol5GQL77Msjqw-_MUrwQIS6E7iHsdc-RaogP2TVjkJmZ1IkGSrX4ZCLfiZmapAPl5PyxovhZwtsxh080ROmCTJWQcbdtBMAAYIlO-BIsofB7tRYNn0ZZTHEgM" 
+                         alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiZfm4VI-MMnLuqSU0xOgXwbWN-f3eN6F6Hn6rkbZes9wXfUw7655nIyo1LJ6QzA9cOv_j5wFfKW-gDTijB8NeuXVcZqvt93c-Mgiqn3KReMXtLJTczkM1PvTe_X0nLkTlMF_oXJnDUNmLACzognt2FkIU2A85MSRcQykKafbb8E-7xh1U9ZfW8_WYd6YY" 
+                         alt="金名文理補習班" class="h-10 md:h-14">
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-red-700 font-bold text-xs no-print uppercase tracking-widest">
+                        <span>專業導師 · 精確教材</span>
+                        <span class="text-slate-300">|</span>
+                        <a href="tel:036560002" class="hover:underline">📞 03-6560002</a>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="window.print()" class="no-print bg-slate-900 text-white px-6 py-2.5 rounded-lg hover:bg-red-700 transition shadow-md text-sm font-bold">
+                列印官方課表
+            </button>
+        </div>
+
+        <!-- 1. Schedule Section -->
+        <div class="mb-6">
+            <div class="no-print flex space-x-1 bg-slate-100 p-1 rounded-xl mb-6 w-fit">
+                <button onclick="switchGrade(9)" id="tab-9" class="tab-active px-8 py-2.5 rounded-lg transition">九年級課程</button>
+                <button onclick="switchGrade(8)" id="tab-8" class="px-8 py-2.5 rounded-lg text-slate-500 hover:text-red-700 transition">八年級課程</button>
+                <button onclick="switchGrade(7)" id="tab-7" class="px-8 py-2.5 rounded-lg text-slate-500 hover:text-red-700 transition">七年級課程</button>
+            </div>
+
+            <div id="schedule-container" class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 mb-12">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- 2. National Top Scorer Peggy Feature (Updated Story) -->
+        <div class="mb-12 no-print bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-red-50">
+            <div class="grid md:grid-cols-12 items-stretch">
+                <!-- Image Side -->
+                <div class="md:col-span-5 relative min-h-[450px]">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhwlIyhIYAjrkev_N5s7tdfsEQsY9nSMtjrFcpV-IWI7-L_4eKYRjZIm40Tc7QzkGiDsL666EpJB2ePjhpMT-RL2bp7eLCgr3VsVhcd4nRJbRZXAZR-NHLji_eixx57eQCC11NjGiBO7JB3yRgXsWpyvEqQDaC7MLqKEBglzpUD35BDONPfzGX7-xwgMMY" 
+                         alt="全國榜首 Peggy" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8 text-white">
+                        <div class="bg-yellow-400 text-red-800 px-4 py-1 rounded-full font-black text-sm w-fit mb-2 shadow-lg">金榜題名</div>
+                        <h2 class="text-4xl font-black mb-1 tracking-tight">Peggy 震撼登場</h2>
+                        <p class="text-lg font-bold">5A10＋ 作文6級分 · 北一女中</p>
+                    </div>
+                </div>
+                <!-- Content Side -->
+                <div class="md:col-span-7 p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-white to-red-50/20">
+                    <h3 class="text-3xl font-black text-red-700 mb-6 leading-tight border-b-2 border-red-100 pb-4">
+                        為什麼家長選擇金名？
+                    </h3>
+                    
+                    <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                        <div class="bg-white p-6 rounded-2xl border-l-8 border-yellow-400 shadow-sm">
+                            <p class="italic text-slate-800 font-bold mb-2 text-xl">
+                                「妳如果考到90分，我就去領養一隻貓給妳玩！」
+                            </p>
+                            <p class="text-sm text-slate-500">— 當時，班主任為了激勵 Peggy 認真讀書而許下的約定</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <p class="font-medium text-slate-700">這句話點燃了她的渴望與鬥志。家長多次感謝我們：<span class="text-red-700 font-bold">「主任的話不是說說而已，是用行動陪著孩子成長！」</span></p>
+                            
+                            <div class="h-px bg-slate-100 my-4"></div>
+                            
+                            <p>在金名，學習不只是追分數，更是學會：<span class="text-slate-900 font-black">規劃、堅持、挑戰自己</span>。</p>
+                            
+                            <p>最終，她不只是竹苗區榜首，更登上<span class="text-red-700 font-black underline underline-offset-4">【全國榜首】</span>！這不是奇蹟，是老師的陪伴，是 Peggy 的努力，更是爸媽的支持。</p>
+                            
+                            <div class="bg-red-50 p-6 rounded-2xl border border-red-100 text-center">
+                                <p class="text-slate-800 font-bold mb-1">每個孩子都有從平凡走向非凡的潛力</p>
+                                <p class="text-red-700 font-black text-xl">只要：方法對 · 有人陪 · 環境給力</p>
+                                <p class="text-slate-500 text-sm mt-2 font-medium">金名，就是這樣的一個地方！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Teacher Credentials -->
+        <div class="no-print grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 shadow-xl">
+                <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-red-800 text-xl font-black shrink-0">獎</div>
+                <div><h4 class="font-bold">補教師鐸獎得主</h4><p class="text-slate-400 text-xs">國家級肯定 · 實力保證</p></div>
+            </div>
+            <div class="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 shadow-xl">
+                <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-red-800 text-xl font-black shrink-0">冠</div>
+                <div><h4 class="font-bold">教學計劃全國冠軍</h4><p class="text-slate-400 text-xs">系統化教材 · 精準掌握</p></div>
+            </div>
+            <div class="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 shadow-xl">
+                <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-red-800 text-xl font-black shrink-0">優</div>
+                <div><h4 class="font-bold">全國大專優秀青年</h4><p class="text-slate-400 text-xs">卓越品質 · 堅持最好</p></div>
+            </div>
+        </div>
+
+        <!-- 4. Testimonials -->
+        <div class="no-print mb-12">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
+                <span class="w-8 h-1 bg-red-700 inline-block"></span>
+                更多學長姐見證
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative italic hover:shadow-md transition">
+                    <div class="text-red-700 font-bold mb-2">義民 茗哲</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">「謝謝我的數學老師 ─ 黃齊班主任，讓我輕鬆拿滿分。」</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative italic hover:shadow-md transition">
+                    <div class="text-red-700 font-bold mb-2">義民 煜翔</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">「來這邊補後，原本認為很難的數學小考，突然變得輕而易舉。」</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative italic hover:shadow-md transition">
+                    <div class="text-red-700 font-bold mb-2">仁愛國中 佳汶</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">「特別謝謝吳迪老師，幫我們補充很多變化的題型，很實用也很好！」</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Location & Contact Footer -->
+        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full -mr-32 -mt-32"></div>
+            <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h2 class="text-3xl font-black mb-6 border-l-4 border-red-500 pl-4">聯絡與諮詢</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl mt-1">📍</span>
+                            <div>
+                                <p class="text-slate-400 text-sm font-bold uppercase mb-1">班址</p>
+                                <p class="text-xl font-bold">新竹縣竹北市國興街28-2號</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-2xl mt-1">📞</span>
+                            <div>
+                                <p class="text-slate-400 text-sm font-bold uppercase mb-1">諮詢專線</p>
+                                <a href="tel:036560002" class="text-3xl font-black text-red-400 hover:text-red-300 transition">03-6560002</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <a href="https://share.google/bmm2KxeCNAkIPe0p5" target="_blank" class="bg-white text-slate-900 p-6 rounded-2xl font-black text-xl flex items-center justify-center gap-3 hover:bg-amber-400 transition shadow-lg group">
+                        <span class="text-2xl group-hover:scale-125 transition">🗺️</span>
+                        開啟 Google 導航
+                    </a>
+                    <a href="https://line.me/ti/p/vQcf6cONnl" target="_blank" class="bg-[#06C755] text-white p-6 rounded-2xl font-black text-xl flex items-center justify-center gap-3 hover:bg-[#05b34c] transition shadow-lg">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.185 1.039.646 1.281-.54 6.911-4.069 9.428-6.967 1.939-2.13 2.571-3.953 2.571-5.991z"/></svg>
+                        LINE 線上預約諮詢
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-10 text-center no-print">
+            <div class="text-slate-400 text-xs tracking-widest uppercase mb-2 italic">
+                專業引導 · 卓越學習 · 金名文理補習班
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const scheduleData = {
+            9: {
+                days: ["週一", "週二", "週三", "週四", "週五"],
+                slots: [
+                    { time: "18:00 - 19:30", items: [null, null, {sub: "數學課", type: "math"}, null, null] },
+                    { time: "19:30 - 21:00", items: [{sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, {sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}] }
+                ]
+            },
+            8: {
+                days: ["週一", "週二", "週三", "週四", "週五"],
+                slots: [
+                    { time: "18:00 - 19:30", items: [{sub: "數學課", type: "math"}, null, {sub: "英文課", type: "english"}, null, null] },
+                    { time: "19:30 - 21:00", items: [{sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, null, {sub: "理化課", type: "science"}] }
+                ]
+            },
+            7: {
+                days: ["週一", "週二", "週三", "週四", "週五", "週六"],
+                slots: [
+                    { time: "16:30 - 18:30", items: [{sub: "數學課", type: "math"}, null, {sub: "數學課", type: "math"}, null, null, null] },
+                    { time: "18:00 - 19:30", items: [null, null, null, null, null, {sub: "數學課(私校)", type: "math"}] },
+                    { time: "19:30 - 21:00", items: [{sub: "英文課", type: "english"}, null, null, {sub: "英文課", type: "english"}, null, {sub: "數學課(私校)", type: "math"}] }
+                ]
+            }
+        };
+
+        function switchGrade(grade) {
+            document.querySelectorAll('[id^="tab-"]').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('text-slate-500');
+            });
+            document.getElementById(`tab-${grade}`).classList.add('tab-active');
+            renderSchedule(grade);
+        }
+
+        function renderSchedule(grade) {
+            const data = scheduleData[grade];
+            const container = document.getElementById('schedule-container');
+            
+            let html = `
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 text-white">
+                                <th class="p-5 font-bold text-sm w-32 border-r border-slate-700">授課時段</th>
+                                ${data.days.map(day => `<th class="p-5 font-bold text-sm">${day}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+            `;
+
+            data.slots.forEach((slot, idx) => {
+                html += `
+                    <tr>
+                        <td class="p-5 bg-slate-50 border-r border-slate-100 font-bold text-slate-600 text-sm">
+                            ${slot.time}
+                        </td>
+                        ${slot.items.map(item => {
+                            if (!item) return `<td class="p-4 empty-slot">備課 / 輔導</td>`;
+                            return `
+                                <td class="p-3">
+                                    <div class="subject-${item.type} py-5 px-2 rounded-xl font-bold text-lg shadow-sm transform transition hover:scale-105 cursor-default">
+                                        ${item.sub}
+                                    </div>
+                                </td>
+                            `;
+                        }).join('')}
+                    </tr>
+                `;
+            });
+
+            html += `</tbody></table></div>`;
+            container.innerHTML = html;
+        }
+
+        window.onload = () => renderSchedule(9);
+    </script>
+</body>
+</html>
