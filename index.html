@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金名文理補習班 - 國中部專業課程</title>
+    <title>金名文理補習班 - 專業國中課程與預約報名</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
@@ -20,7 +20,7 @@
         .tab-active {
             background-color: #ffffff;
             color: #b91c1c;
-            border-bottom: 3px solid #b91c1c;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             font-weight: 700;
         }
 
@@ -51,6 +51,24 @@
         .float-3d:hover {
             transform: scale(1.1) translateY(-15px);
             box-shadow: 0 20px 30px rgba(0,0,0,0.3), inset 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step-badge {
+            display: inline-block;
+            background-color: #ef4444;
+            color: white;
+            padding: 2px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-focus:focus {
+            outline: none;
+            border-color: #ef4444;
+            ring: 2px;
+            ring-color: #fee2e2;
         }
 
         @media print {
@@ -100,24 +118,26 @@
             </button>
         </div>
 
-        <!-- 1. Schedule Section -->
-        <div class="mb-6">
-            <div class="no-print flex space-x-1 bg-slate-100 p-1 rounded-xl mb-6 w-fit">
-                <button onclick="switchGrade(9)" id="tab-9" class="tab-active px-8 py-2.5 rounded-lg transition">九年級課程</button>
-                <button onclick="switchGrade(8)" id="tab-8" class="px-8 py-2.5 rounded-lg text-slate-500 hover:text-red-700 transition">八年級課程</button>
-                <button onclick="switchGrade(7)" id="tab-7" class="px-8 py-2.5 rounded-lg text-slate-500 hover:text-red-700 transition">七年級課程</button>
-            </div>
-
-            <div id="schedule-container" class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 mb-12">
-                <!-- Rendered by JS -->
+        <!-- 1. FB Section (Step 1) -->
+        <div class="no-print mb-8">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <div class="step-badge">STEP 1</div>
+                    <h3 class="text-2xl font-black text-slate-800 mb-2">FB 按讚追蹤</h3>
+                    <p class="text-slate-500 text-sm">追蹤金名粉絲團，第一時間掌握最新教育資訊與活動好康！</p>
+                </div>
+                <a href="https://www.facebook.com/jingmingliveabc/" target="_blank" class="w-full md:w-auto bg-[#1877F2] px-10 py-5 rounded-2xl flex items-center justify-center space-x-4 shadow-lg hover:bg-[#166fe5] active:scale-95 transition-all group min-w-[280px]">
+                    <svg class="w-8 h-8 text-white group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span class="text-white font-black text-xl tracking-wide">點我前往 FB 按讚</span>
+                </a>
             </div>
         </div>
 
-        <!-- 2. National Top Scorer Peggy Feature (Updated Story) -->
+        <!-- 2. National Top Scorer Peggy Feature -->
         <div class="mb-12 no-print bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-red-50">
             <div class="grid md:grid-cols-12 items-stretch">
                 <!-- Image Side -->
-                <div class="md:col-span-5 relative min-h-[450px]">
+                <div class="md:col-span-5 relative min-h-[400px]">
                     <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhwlIyhIYAjrkev_N5s7tdfsEQsY9nSMtjrFcpV-IWI7-L_4eKYRjZIm40Tc7QzkGiDsL666EpJB2ePjhpMT-RL2bp7eLCgr3VsVhcd4nRJbRZXAZR-NHLji_eixx57eQCC11NjGiBO7JB3yRgXsWpyvEqQDaC7MLqKEBglzpUD35BDONPfzGX7-xwgMMY" 
                          alt="全國榜首 Peggy" class="absolute inset-0 w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8 text-white">
@@ -139,71 +159,100 @@
                             </p>
                             <p class="text-sm text-slate-500">— 當時，班主任為了激勵 Peggy 認真讀書而許下的約定</p>
                         </div>
-                        
-                        <div class="space-y-4">
-                            <p class="font-medium text-slate-700">這句話點燃了她的渴望與鬥志。家長多次感謝我們：<span class="text-red-700 font-bold">「主任的話不是說說而已，是用行動陪著孩子成長！」</span></p>
-                            
-                            <div class="h-px bg-slate-100 my-4"></div>
-                            
-                            <p>在金名，學習不只是追分數，更是學會：<span class="text-slate-900 font-black">規劃、堅持、挑戰自己</span>。</p>
-                            
-                            <p>最終，她不只是竹苗區榜首，更登上<span class="text-red-700 font-black underline underline-offset-4">【全國榜首】</span>！這不是奇蹟，是老師的陪伴，是 Peggy 的努力，更是爸媽的支持。</p>
-                            
-                            <div class="bg-red-50 p-6 rounded-2xl border border-red-100 text-center">
-                                <p class="text-slate-800 font-bold mb-1">每個孩子都有從平凡走向非凡的潛力</p>
-                                <p class="text-red-700 font-black text-xl">只要：方法對 · 有人陪 · 環境給力</p>
-                                <p class="text-slate-500 text-sm mt-2 font-medium">金名，就是這樣的一個地方！</p>
-                            </div>
-                        </div>
+                        <p class="font-medium text-slate-700">這句話點燃了她的渴望與鬥志。家長多次感謝我們：<span class="text-red-700 font-bold">「主任的話不是說說而已，是用行動陪著孩子成長！」</span></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 3. Teacher Credentials -->
-        <div class="no-print grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 shadow-xl">
-                <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-red-800 text-xl font-black shrink-0">獎</div>
-                <div><h4 class="font-bold">補教師鐸獎得主</h4><p class="text-slate-400 text-xs">國家級肯定 · 實力保證</p></div>
-            </div>
-            <div class="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 shadow-xl">
-                <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-red-800 text-xl font-black shrink-0">冠</div>
-                <div><h4 class="font-bold">教學計劃全國冠軍</h4><p class="text-slate-400 text-xs">系統化教材 · 精準掌握</p></div>
-            </div>
-            <div class="bg-slate-900 text-white p-6 rounded-2xl flex items-center gap-4 shadow-xl">
-                <div class="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-red-800 text-xl font-black shrink-0">優</div>
-                <div><h4 class="font-bold">全國大專優秀青年</h4><p class="text-slate-400 text-xs">卓越品質 · 堅持最好</p></div>
+        <!-- 3. Lead Form Section ("了解詳情") -->
+        <div class="mb-12 no-print bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <div class="step-badge">STEP 2</div>
+                    <h3 class="text-3xl font-black text-slate-800">了解詳情</h3>
+                    <p class="text-slate-400 text-sm mt-2 font-medium">填寫下方資料，我們將由專人與您聯繫</p>
+                </div>
+                
+                <form id="leadForm" action="https://formspree.io/f/mpqkjlkv" method="POST" class="space-y-5">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1.5"><span class="text-red-500">*</span> 學生姓名</label>
+                            <input type="text" id="studentName" name="學生姓名" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="孩子姓名">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1.5"><span class="text-red-500">*</span> 家長姓名</label>
+                            <input type="text" id="parentName" name="家長姓名" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="您的稱呼">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1.5"><span class="text-red-500">*</span> 就讀學校</label>
+                        <input type="text" id="school" name="就讀學校" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="例如：竹北國中">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1.5"><span class="text-red-500">*</span> 行動電話</label>
+                        <input type="tel" id="phone" name="行動電話" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="09XX-XXX-XXX">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-2.5"><span class="text-red-500">*</span> 資訊來源</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center p-3 bg-white rounded-xl border border-slate-100 cursor-pointer text-xs hover:border-red-200 transition">
+                                <input type="radio" name="資訊來源" value="本校員工" required class="mr-2 accent-red-600"> 本校員工
+                            </label>
+                            <label class="flex items-center p-3 bg-white rounded-xl border border-slate-100 cursor-pointer text-xs hover:border-red-200 transition">
+                                <input type="radio" name="資訊來源" value="Live粉絲團" class="mr-2 accent-red-600"> Live 粉絲團
+                            </label>
+                            <label class="flex items-center p-3 bg-white rounded-xl border border-slate-100 cursor-pointer text-xs hover:border-red-200 transition">
+                                <input type="radio" name="資訊來源" value="DM宣傳" class="mr-2 accent-red-600"> DM 宣傳
+                            </label>
+                            <label class="flex items-center p-3 bg-white rounded-xl border border-slate-100 cursor-pointer text-xs hover:border-red-200 transition">
+                                <input type="radio" name="資訊來源" value="網路廣告" class="mr-2 accent-red-600"> 網路廣告
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="block text-xs font-bold text-blue-600 mb-1.5 flex items-center gap-1">
+                            <span>✨ 介紹人編號 (若有請填寫)</span>
+                        </label>
+                        <input type="text" id="referralId" name="介紹人編號" class="w-full p-4 rounded-2xl border border-blue-100 bg-blue-50/50 text-sm input-focus" placeholder="例：A001">
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-[#06C755] hover:bg-[#05a346] text-white font-black py-5 rounded-[2rem] shadow-lg transition-all transform active:scale-95 flex items-center justify-center space-x-3 text-lg">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738s-12 4.369-12 9.738c0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.052.303-.242 1.186 1.046.647 1.287-.54 6.942-4.085 9.467-6.991 1.761-1.954 2.526-3.834 2.526-5.973z"/></svg>
+                        <span id="btnText">提交資料</span>
+                    </button>
+                    <p class="text-[10px] text-center text-slate-400 italic">※ 提交後會自動複製資料，方便您在 LINE 貼上完成報名</p>
+                </form>
             </div>
         </div>
 
-        <!-- 4. Testimonials -->
-        <div class="no-print mb-12">
-            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
-                <span class="w-8 h-1 bg-red-700 inline-block"></span>
-                更多學長姐見證
+        <!-- 4. Schedule Section (Ordered 7, 8, 9) -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+                <span class="w-2 h-8 bg-red-700 rounded-full"></span>
+                課程時段表
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative italic hover:shadow-md transition">
-                    <div class="text-red-700 font-bold mb-2">義民 茗哲</div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">「謝謝我的數學老師 ─ 黃齊班主任，讓我輕鬆拿滿分。」</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative italic hover:shadow-md transition">
-                    <div class="text-red-700 font-bold mb-2">義民 煜翔</div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">「來這邊補後，原本認為很難的數學小考，突然變得輕而易舉。」</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative italic hover:shadow-md transition">
-                    <div class="text-red-700 font-bold mb-2">仁愛國中 佳汶</div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">「特別謝謝吳迪老師，幫我們補充很多變化的題型，很實用也很好！」</p>
-                </div>
+            <div class="no-print flex space-x-1 bg-slate-200/50 p-1.5 rounded-2xl mb-6 w-fit border border-slate-200">
+                <button onclick="switchGrade(7)" id="tab-7" class="tab-active px-8 py-3 rounded-xl transition shadow-sm">七年級課程</button>
+                <button onclick="switchGrade(8)" id="tab-8" class="px-8 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">八年級課程</button>
+                <button onclick="switchGrade(9)" id="tab-9" class="px-8 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">九年級課程</button>
+            </div>
+
+            <div id="schedule-container" class="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-200">
+                <!-- Rendered by JS -->
             </div>
         </div>
 
-        <!-- 5. Location & Contact Footer -->
-        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
+        <!-- 5. Location & Contact -->
+        <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
             <div class="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full -mr-32 -mt-32"></div>
             <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                    <h2 class="text-3xl font-black mb-6 border-l-4 border-red-500 pl-4">聯絡與諮詢</h2>
+                    <h2 class="text-3xl font-black mb-6 border-l-4 border-red-500 pl-4">聯絡資訊</h2>
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
                             <span class="text-2xl mt-1">📍</span>
@@ -226,10 +275,6 @@
                         <span class="text-2xl group-hover:scale-125 transition">🗺️</span>
                         開啟 Google 導航
                     </a>
-                    <a href="https://line.me/ti/p/vQcf6cONnl" target="_blank" class="bg-[#06C755] text-white p-6 rounded-2xl font-black text-xl flex items-center justify-center gap-3 hover:bg-[#05b34c] transition shadow-lg">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.185 1.039.646 1.281-.54 6.911-4.069 9.428-6.967 1.939-2.13 2.571-3.953 2.571-5.991z"/></svg>
-                        LINE 線上預約諮詢
-                    </a>
                 </div>
             </div>
         </div>
@@ -238,16 +283,23 @@
             <div class="text-slate-400 text-xs tracking-widest uppercase mb-2 italic">
                 專業引導 · 卓越學習 · 金名文理補習班
             </div>
+            <p class="text-[10px] text-slate-300 italic">府教社字第1000079733號</p>
         </footer>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-black/90 text-white px-8 py-3 rounded-full text-sm font-bold opacity-0 transition-opacity pointer-events-none z-50 shadow-2xl border border-slate-700">
+        資料已成功存入，並自動複製格式！
     </div>
 
     <script>
         const scheduleData = {
-            9: {
-                days: ["週一", "週二", "週三", "週四", "週五"],
+            7: {
+                days: ["週一", "週二", "週三", "週四", "週五", "週六"],
                 slots: [
-                    { time: "18:00 - 19:30", items: [null, null, {sub: "數學課", type: "math"}, null, null] },
-                    { time: "19:30 - 21:00", items: [{sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, {sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}] }
+                    { time: "16:30 - 18:30", items: [{sub: "數學課", type: "math"}, null, {sub: "數學課", type: "math"}, null, null, null] },
+                    { time: "18:00 - 19:30", items: [null, null, null, null, null, {sub: "數學課(私校)", type: "math"}] },
+                    { time: "19:30 - 21:00", items: [{sub: "英文課", type: "english"}, null, null, {sub: "英文課", type: "english"}, null, {sub: "數學課(私校)", type: "math"}] }
                 ]
             },
             8: {
@@ -257,12 +309,11 @@
                     { time: "19:30 - 21:00", items: [{sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, null, {sub: "理化課", type: "science"}] }
                 ]
             },
-            7: {
-                days: ["週一", "週二", "週三", "週四", "週五", "週六"],
+            9: {
+                days: ["週一", "週二", "週三", "週四", "週五"],
                 slots: [
-                    { time: "16:30 - 18:30", items: [{sub: "數學課", type: "math"}, null, {sub: "數學課", type: "math"}, null, null, null] },
-                    { time: "18:00 - 19:30", items: [null, null, null, null, null, {sub: "數學課(私校)", type: "math"}] },
-                    { time: "19:30 - 21:00", items: [{sub: "英文課", type: "english"}, null, null, {sub: "英文課", type: "english"}, null, {sub: "數學課(私校)", type: "math"}] }
+                    { time: "18:00 - 19:30", items: [null, null, {sub: "數學課", type: "math"}, null, null] },
+                    { time: "19:30 - 21:00", items: [{sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, {sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}] }
                 ]
             }
         };
@@ -316,7 +367,62 @@
             container.innerHTML = html;
         }
 
-        window.onload = () => renderSchedule(9);
+        // 表單處理
+        const form = document.getElementById('leadForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const toast = document.getElementById('toast');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            btnText.innerText = "資料傳送中...";
+            
+            const sName = document.getElementById('studentName').value;
+            const pName = document.getElementById('parentName').value;
+            const school = document.getElementById('school').value;
+            const phone = document.getElementById('phone').value;
+            const source = document.querySelector('input[name="資訊來源"]:checked')?.value || '未選取';
+            const refId = document.getElementById('referralId').value || '無';
+
+            const formData = new FormData(form);
+
+            try {
+                // 1. 發送到 Formspree
+                await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                // 2. 格式化複製文字
+                const textToCopy = `【金名預約報名】\n學生：${sName}\n家長：${pName}\n學校：${school}\n電話：${phone}\n來源：${source}\n編號：${refId}`;
+                
+                // 3. 複製
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = textToCopy;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+
+                // 4. Toast
+                toast.style.opacity = '1';
+                setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+
+                // 5. LINE 跳轉
+                setTimeout(() => {
+                    window.location.href = "https://line.me/ti/p/vQcf6cONnl";
+                }, 1500);
+
+            } catch (err) {
+                btnText.innerText = "提交失敗，請重試";
+                submitBtn.disabled = false;
+            }
+        });
+
+        window.onload = () => renderSchedule(7);
     </script>
 </body>
 </html>
