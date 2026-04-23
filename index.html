@@ -71,6 +71,12 @@
             ring-color: #fee2e2;
         }
 
+        /* 強化清晰度與亮度的類別 */
+        .bright-sharp {
+            filter: brightness(1.08) contrast(1.05) saturate(1.1);
+            image-rendering: -webkit-optimize-contrast;
+        }
+
         @media print {
             .no-print { display: none; }
             body { background: white; padding: 0; }
@@ -90,7 +96,7 @@
     <!-- Honor Roll Marquee -->
     <div class="no-print w-full bg-red-700 text-white py-2.5 mb-8 overflow-hidden relative shadow-inner">
         <div class="animate-scroll font-bold text-sm uppercase tracking-wider">
-            🏆 狂賀！Peggy 榮獲國中教育會考【全國榜首】錄取北一女！ 🐱 「只要妳考到90分，我就去養一隻貓給妳玩！」總班主任陪伴學子創造奇蹟！ 🔥 義民茗哲 數學滿分100！ 🌟 竹北國中宜芳 段考滿分！ 
+            🏆 狂賀！Peggy 榮獲國中教育會考【全國榜首】錄取北一女！ 🐱 「只要妳考到90分，我就去養一隻貓給妳玩！」 🔥 賀 曙光 昱皓 數學100！ 🌟 義民茗哲 數學滿分100！ 🌟 竹北國中宜芳 段考滿分！ 
         </div>
     </div>
 
@@ -137,13 +143,15 @@
         <div class="mb-12 no-print bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-red-50">
             <div class="grid md:grid-cols-12 items-stretch">
                 <!-- Image Side -->
-                <div class="md:col-span-5 relative min-h-[400px]">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhwlIyhIYAjrkev_N5s7tdfsEQsY9nSMtjrFcpV-IWI7-L_4eKYRjZIm40Tc7QzkGiDsL666EpJB2ePjhpMT-RL2bp7eLCgr3VsVhcd4nRJbRZXAZR-NHLji_eixx57eQCC11NjGiBO7JB3yRgXsWpyvEqQDaC7MLqKEBglzpUD35BDONPfzGX7-xwgMMY" 
-                         alt="全國榜首 Peggy" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8 text-white">
+                <div class="md:col-span-5 relative min-h-[400px] bg-slate-100">
+                    <!-- 加入 bright-sharp 類別以強化影像 -->
+                    <img src="https://i.postimg.cc/v84JdYGZ/ying-mu-xie-qu-hua-mian-2026-04-23-110834.png" 
+                         alt="全國榜首 Peggy" class="absolute inset-0 w-full h-full object-cover bright-sharp">
+                    <!-- 優化漸層，避免底部過於昏暗 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
                         <div class="bg-yellow-400 text-red-800 px-4 py-1 rounded-full font-black text-sm w-fit mb-2 shadow-lg">金榜題名</div>
-                        <h2 class="text-4xl font-black mb-1 tracking-tight">Peggy 震撼登場</h2>
-                        <p class="text-lg font-bold">5A10＋ 作文6級分 · 北一女中</p>
+                        <h2 class="text-4xl font-black mb-1 tracking-tight drop-shadow-md">Peggy 震撼登場</h2>
+                        <p class="text-lg font-bold drop-shadow-md">5A10＋ 作文6級分 · 北一女中</p>
                     </div>
                 </div>
                 <!-- Content Side -->
