@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>金名文理補習班 - 專業國中課程與預約報名</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2509981942790111');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2509981942790111&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
@@ -77,6 +96,17 @@
             image-rendering: -webkit-optimize-contrast;
         }
 
+        /* 招生卡片懸停效果 */
+        .course-card {
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: #fecaca;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
         @media print {
             .no-print { display: none; }
             body { background: white; padding: 0; }
@@ -124,7 +154,7 @@
             </button>
         </div>
 
-        <!-- 1. FB Section (Step 1) -->
+        <!-- 1. FB Section -->
         <div class="no-print mb-8">
             <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="text-center md:text-left">
@@ -139,21 +169,18 @@
             </div>
         </div>
 
-        <!-- 2. National Top Scorer Peggy Feature -->
+        <!-- 2. National Top Scorer Feature -->
         <div class="mb-12 no-print bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-red-50">
             <div class="grid md:grid-cols-12 items-stretch">
-                <!-- Image Side -->
                 <div class="md:col-span-5 relative min-h-[400px] bg-slate-900 flex items-center justify-center overflow-hidden">
                     <img src="https://i.postimg.cc/v84JdYGZ/ying-mu-xie-qu-hua-mian-2026-04-23-110834.png" 
                          alt="全國榜首 Peggy" class="w-full h-full object-contain bright-sharp">
                 </div>
-                <!-- Content Side -->
                 <div class="md:col-span-7 p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-white to-red-50/30">
                     <div class="mb-8">
                         <h3 class="text-3xl font-black text-slate-800 mb-4 leading-tight">
                             【美少女 Peggy 的奇蹟之路】
                         </h3>
-                        <!-- 逆襲時間軸 -->
                         <div class="flex flex-wrap items-center gap-2 text-sm font-black mb-6">
                             <span class="px-3 py-1 bg-slate-200 text-slate-600 rounded-lg line-through">不及格</span>
                             <span class="text-red-400">➔</span>
@@ -174,7 +201,6 @@
                             </p>
                             <p class="text-sm text-slate-500">— 當時，總班主任為了激勵 Peggy 認真讀書而許下的約定</p>
                         </div>
-                        
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <h5 class="font-black text-red-700 text-base mb-1">💡 奇蹟關鍵</h5>
@@ -189,14 +215,13 @@
                                 </ul>
                             </div>
                         </div>
-
                         <p class="font-medium text-slate-700">家長多次感謝我們：<span class="text-red-700 font-black border-b-2 border-red-200">「主任的話不是說說而已，是用行動陪著孩子成長！」</span></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 3. Lead Form Section ("了解詳情") -->
+        <!-- 3. Lead Form Section -->
         <div class="mb-12 no-print bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-8">
@@ -216,17 +241,14 @@
                             <input type="text" id="parentName" name="家長姓名" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="您的稱呼">
                         </div>
                     </div>
-
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1.5"><span class="text-red-500">*</span> 就讀學校</label>
                         <input type="text" id="school" name="就讀學校" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="例如：竹北國中">
                     </div>
-
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-1.5"><span class="text-red-500">*</span> 行動電話</label>
                         <input type="tel" id="phone" name="行動電話" required class="w-full p-4 rounded-2xl border border-slate-200 text-sm input-focus bg-slate-50" placeholder="09XX-XXX-XXX">
                     </div>
-
                     <div>
                         <label class="block text-xs font-bold text-slate-500 mb-2.5"><span class="text-red-500">*</span> 資訊來源</label>
                         <div class="grid grid-cols-2 gap-2">
@@ -244,14 +266,12 @@
                             </label>
                         </div>
                     </div>
-
                     <div class="pt-2">
                         <label class="block text-xs font-bold text-blue-600 mb-1.5 flex items-center gap-1">
                             <span>✨ 介紹人編號 (若有請填寫)</span>
                         </label>
                         <input type="text" id="referralId" name="介紹人編號" class="w-full p-4 rounded-2xl border border-blue-100 bg-blue-50/50 text-sm input-focus" placeholder="例：A001">
                     </div>
-
                     <button type="submit" id="submitBtn" class="w-full bg-[#06C755] hover:bg-[#05a346] text-white font-black py-5 rounded-[2rem] shadow-lg transition-all transform active:scale-95 flex items-center justify-center space-x-3 text-lg">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738s-12 4.369-12 9.738c0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.052.303-.242 1.186 1.046.647 1.287-.54 6.942-4.085 9.467-6.991 1.761-1.954 2.526-3.834 2.526-5.973z"/></svg>
                         <span id="btnText">提交資料</span>
@@ -261,7 +281,7 @@
             </div>
         </div>
 
-        <!-- 4. Schedule Section (Ordered 6, 7, 8, 9) -->
+        <!-- 4. Schedule Section -->
         <div class="mb-12">
             <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
                 <span class="w-2 h-8 bg-red-700 rounded-full"></span>
@@ -273,13 +293,93 @@
                 <button onclick="switchGrade(8)" id="tab-8" class="px-6 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">八年級課程</button>
                 <button onclick="switchGrade(9)" id="tab-9" class="px-6 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">九年級課程</button>
             </div>
-
             <div id="schedule-container" class="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-200">
                 <!-- Rendered by JS -->
             </div>
         </div>
 
-        <!-- 5. Location & Contact -->
+        <!-- 5. Hot Courses Section -->
+        <div class="mb-12 no-print bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-slate-100">
+            <h2 class="text-2xl font-black text-slate-800 mb-8 flex items-center gap-3">
+                🚀 2026 各大熱門課程．熱烈招生中！
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Card 1 -->
+                <a href="https://mocher235-byte.github.io/new/" target="_blank" class="course-card p-6 bg-slate-50 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-2xl mb-3">🎒</div>
+                        <h4 class="font-black text-slate-800 mb-1">升小一新生家長說明會</h4>
+                        <p class="text-xs text-slate-500">專業引領，讓孩子贏在起跑點</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-red-600 font-bold text-sm">
+                        <span>👉 立即預約</span>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+                <!-- Card 2 -->
+                <a href="https://mocher235-byte.github.io/apple/" target="_blank" class="course-card p-6 bg-slate-50 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-2xl mb-3">🍎</div>
+                        <h4 class="font-black text-slate-800 mb-1">AI 科技教學體驗</h4>
+                        <p class="text-xs text-slate-500">未來已來，掌握智慧學習新趨勢</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-red-600 font-bold text-sm">
+                        <span>👉 了解詳情</span>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+                <!-- Card 3 -->
+                <a href="https://mocher235-byte.github.io/kidsabc/" target="_blank" class="course-card p-6 bg-slate-50 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-2xl mb-3">🧸</div>
+                        <h4 class="font-black text-slate-800 mb-1">幼兒美語啟蒙班</h4>
+                        <p class="text-xs text-slate-500">沉浸式環境，開口說英文超簡單</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-red-600 font-bold text-sm">
+                        <span>👉 啟蒙對話</span>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+                <!-- Card 4 -->
+                <a href="https://mocher235-byte.github.io/summer/" target="_blank" class="course-card p-6 bg-red-50/50 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-2xl mb-3">🏖️</div>
+                        <h4 class="font-black text-slate-800 mb-1">2026 Live時空旅行家｜暑期課程</h4>
+                        <p class="text-xs text-slate-500">豐富有趣的夏日探索之旅</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-red-600 font-bold text-sm">
+                        <span>👉 暑期報名</span>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+                <!-- Card 5 -->
+                <a href="https://mocher235-byte.github.io/jingming/" target="_blank" class="course-card p-6 bg-slate-50 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-2xl mb-3">🎯</div>
+                        <h4 class="font-black text-slate-800 mb-1">115年私中特訓班｜金名領航</h4>
+                        <p class="text-xs text-slate-500">精準考點分析，助你考取心儀私中</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-red-600 font-bold text-sm">
+                        <span>👉 決勝私中</span>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+                <!-- Card 6 -->
+                <a href="https://mocher235-byte.github.io/123456/" target="_blank" class="course-card p-6 bg-blue-50/30 rounded-3xl flex flex-col justify-between group border-dashed border-2 border-blue-100">
+                    <div>
+                        <div class="text-2xl mb-3">🗓️</div>
+                        <h4 class="font-black text-blue-800 mb-1">金名補習班國小部課表</h4>
+                        <p class="text-xs text-blue-500">掌握每日學習計畫，高效安排時間</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-blue-600 font-bold text-sm">
+                        <span>👉 點我查看</span>
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 6. Location & Contact -->
         <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
             <div class="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full -mr-32 -mt-32"></div>
             <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
@@ -327,22 +427,28 @@
     <script>
         const scheduleData = {
             6: {
-                title: "2026年 國一先修班 (6/15 - 6/30)",
+                title: "2026年 國一先修班 (6/10 - 6/30)",
                 days: ["週一", "週二", "週三", "週四", "週五"],
                 slots: [
                     { 
                         time: "13:00 - 14:30", 
                         items: [
-                            {sub: "英文課 (6/22, 6/29)", type: "english"}, 
+                            {sub: "英文課 (6/15, 6/22, 6/29)", type: "english"}, 
                             null, 
-                            null, 
-                            {sub: "英文課 (6/18, 6/25)", type: "english"}, 
-                            {sub: "數學課 (6/26)", type: "math"}
+                            {sub: "AI電腦實作 (6/10, 6/17)", type: "science"}, 
+                            {sub: "英文課 (6/11, 6/18, 6/25)", type: "english"}, 
+                            {sub: "數學課 (6/12, 6/26)", type: "math"}
                         ] 
                     },
                     { 
                         time: "14:30 - 16:00", 
-                        items: [null, null, null, null, null] 
+                        items: [
+                            null, 
+                            null, 
+                            {sub: "AI電腦實作 (6/10, 6/17)", type: "science"}, 
+                            null, 
+                            null
+                        ] 
                     }
                 ]
             },
@@ -448,6 +554,10 @@
                     headers: { 'Accept': 'application/json' }
                 });
 
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead');
+                }
+
                 const textToCopy = `【金名預約報名】\n學生：${sName}\n家長：${pName}\n學校：${school}\n電話：${phone}\n來源：${source}\n編號：${refId}`;
                 
                 const tempTextArea = document.createElement('textarea');
@@ -470,7 +580,7 @@
             }
         });
 
-        window.onload = () => renderSchedule(6); // 預設顯示先修班
+        window.onload = () => renderSchedule(6);
     </script>
 </body>
 </html>
