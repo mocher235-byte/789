@@ -34,7 +34,7 @@
         .subject-math { background-color: #eff6ff; border-left: 5px solid #2563eb; color: #1e3a8a; }
         .subject-english { background-color: #f0fdf4; border-left: 5px solid #16a34a; color: #14532d; }
         .subject-science { background-color: #faf5ff; border-left: 5px solid #7c3aed; color: #4c1d95; }
-        .empty-slot { color: #e2e8f0; font-size: 0.85rem; }
+        .empty-slot { color: #cbd5e1; font-size: 0.85rem; }
         
         .tab-active {
             background-color: #ffffff;
@@ -90,13 +90,11 @@
             ring-color: #fee2e2;
         }
 
-        /* 強化清晰度與亮度的類別 */
         .bright-sharp {
             filter: brightness(1.08) contrast(1.05) saturate(1.1);
             image-rendering: -webkit-optimize-contrast;
         }
 
-        /* 招生卡片懸停效果 */
         .course-card {
             transition: all 0.3s ease;
             border: 1px solid #f1f5f9;
@@ -117,7 +115,7 @@
 <body class="p-4 md:p-8">
 
     <!-- LINE 3D 浮標 -->
-    <a href="https://line.me/ti/p/vQcf6cONnl" target="_blank" class="no-print fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-[#06C755] rounded-full float-3d border-2 border-white">
+    <a href="https://line.me/ti/p/vQcf6cONnl" target="_blank" class="no-print fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-[#06C755] rounded-full float-3d border-2 border-white" aria-label="LINE 諮詢">
         <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.185 1.039.646 1.281-.54 6.911-4.069 9.428-6.967 1.939-2.13 2.571-3.953 2.571-5.991z"/>
         </svg>
@@ -273,7 +271,7 @@
                         <input type="text" id="referralId" name="介紹人編號" class="w-full p-4 rounded-2xl border border-blue-100 bg-blue-50/50 text-sm input-focus" placeholder="例：A001">
                     </div>
                     <button type="submit" id="submitBtn" class="w-full bg-[#06C755] hover:bg-[#05a346] text-white font-black py-5 rounded-[2rem] shadow-lg transition-all transform active:scale-95 flex items-center justify-center space-x-3 text-lg">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738s-12 4.369-12 9.738c0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.052.303-.242 1.186 1.046.647 1.287-.54 6.942-4.085 9.467-6.991 1.761-1.954 2.526-3.834 2.526-5.973z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.052.303-.242 1.186 1.046.647 1.287-.54 6.942-4.085 9.467-6.991 1.761-1.954 2.526-3.834 2.526-5.973z"/></svg>
                         <span id="btnText">提交資料</span>
                     </button>
                     <p class="text-[10px] text-center text-slate-400 italic">※ 提交後會自動複製資料，方便您在 LINE 貼上完成報名</p>
@@ -288,8 +286,7 @@
                 課程時段表
             </h2>
             <div class="no-print flex flex-wrap gap-2 bg-slate-200/50 p-1.5 rounded-2xl mb-6 w-fit border border-slate-200">
-                <button onclick="switchGrade(6)" id="tab-6" class="tab-active px-6 py-3 rounded-xl transition shadow-sm">國一先修(6升7)</button>
-                <button onclick="switchGrade(7)" id="tab-7" class="px-6 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">七年級課程</button>
+                <button onclick="switchGrade(7)" id="tab-7" class="tab-active px-6 py-3 rounded-xl transition shadow-sm">七年級課程</button>
                 <button onclick="switchGrade(8)" id="tab-8" class="px-6 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">八年級課程</button>
                 <button onclick="switchGrade(9)" id="tab-9" class="px-6 py-3 rounded-xl text-slate-500 hover:text-red-700 transition">九年級課程</button>
             </div>
@@ -426,33 +423,8 @@
 
     <script>
         const scheduleData = {
-            6: {
-                title: "2026年 國一先修班 (6/10 - 6/30)",
-                days: ["週一", "週二", "週三", "週四", "週五"],
-                slots: [
-                    { 
-                        time: "13:00 - 14:30", 
-                        items: [
-                            {sub: "英文課 (6/15, 6/22, 6/29)", type: "english"}, 
-                            null, 
-                            {sub: "AI電腦實作 (6/10, 6/17)", type: "science"}, 
-                            {sub: "英文課 (6/11, 6/18, 6/25)", type: "english"}, 
-                            {sub: "數學課 (6/12, 6/26)", type: "math"}
-                        ] 
-                    },
-                    { 
-                        time: "14:30 - 16:00", 
-                        items: [
-                            null, 
-                            null, 
-                            {sub: "AI電腦實作 (6/10, 6/17)", type: "science"}, 
-                            null, 
-                            null
-                        ] 
-                    }
-                ]
-            },
             7: {
+                title: "七年級 課表",
                 days: ["週一", "週二", "週三", "週四", "週五", "週六"],
                 slots: [
                     { time: "16:30 - 18:00", items: [{sub: "數學課", type: "math"}, null, {sub: "數學課", type: "math"}, null, null, null] },
@@ -461,17 +433,19 @@
                 ]
             },
             8: {
+                title: "八年級 課表",
                 days: ["週一", "週二", "週三", "週四", "週五"],
                 slots: [
-                    { time: "18:00 - 19:30", items: [{sub: "數學課", type: "math"}, null, {sub: "英文課", type: "english"}, null, null] },
-                    { time: "19:30 - 21:00", items: [{sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, null, {sub: "理化課", type: "science"}] }
+                    { time: "18:00 - 19:30", items: [{sub: "數學課", type: "math"}, null, {sub: "英文課", type: "english"}, null, {sub: "理化課", type: "science"}] },
+                    { time: "19:30 - 21:00", items: [{sub: "數學課", type: "math"}, null, {sub: "英文課", type: "english"}, null, {sub: "理化課", type: "science"}] }
                 ]
             },
             9: {
+                title: "九年級 課表",
                 days: ["週一", "週二", "週三", "週四", "週五"],
                 slots: [
-                    { time: "18:00 - 19:30", items: [null, null, {sub: "數學課", type: "math"}, null, null] },
-                    { time: "19:30 - 21:00", items: [{sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}, {sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}] }
+                    { time: "18:00 - 19:30", items: [null, null, {sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, null] },
+                    { time: "19:30 - 21:00", items: [null, {sub: "英文課", type: "english"}, {sub: "數學課", type: "math"}, {sub: "理化課", type: "science"}, {sub: "英文課", type: "english"}] }
                 ]
             }
         };
@@ -481,17 +455,22 @@
                 btn.classList.remove('tab-active');
                 btn.classList.add('text-slate-500');
             });
-            document.getElementById(`tab-${grade}`).classList.add('tab-active');
+            const activeTab = document.getElementById(`tab-${grade}`);
+            if (activeTab) {
+                activeTab.classList.remove('text-slate-500');
+                activeTab.classList.add('tab-active');
+            }
             renderSchedule(grade);
         }
 
         function renderSchedule(grade) {
             const data = scheduleData[grade];
             const container = document.getElementById('schedule-container');
+            if (!data || !container) return;
             
             let html = `
                 <div class="overflow-x-auto">
-                    ${data.title ? `<div class="bg-red-50 p-4 text-center font-black text-red-700 border-b border-red-100">${data.title}</div>` : ''}
+                    ${data.title ? `<div class="bg-red-50 p-4 text-center font-black text-red-700 border-b border-red-100 text-lg">${data.title}</div>` : ''}
                     <table class="w-full text-center border-collapse">
                         <thead>
                             <tr class="bg-slate-900 text-white">
@@ -502,10 +481,10 @@
                         <tbody class="divide-y divide-slate-100">
             `;
 
-            data.slots.forEach((slot, idx) => {
+            data.slots.forEach((slot) => {
                 html += `
                     <tr>
-                        <td class="p-5 bg-slate-50 border-r border-slate-100 font-bold text-slate-600 text-sm">
+                        <td class="p-5 bg-slate-50 border-r border-slate-100 font-bold text-slate-600 text-sm whitespace-nowrap">
                             ${slot.time}
                         </td>
                         ${slot.items.map(item => {
@@ -526,61 +505,62 @@
             container.innerHTML = html;
         }
 
-        // 表單處理
         const form = document.getElementById('leadForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const toast = document.getElementById('toast');
 
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            submitBtn.disabled = true;
-            btnText.innerText = "資料傳送中...";
-            
-            const sName = document.getElementById('studentName').value;
-            const pName = document.getElementById('parentName').value;
-            const school = document.getElementById('school').value;
-            const phone = document.getElementById('phone').value;
-            const source = document.querySelector('input[name=\"資訊來源\"]:checked')?.value || '未選取';
-            const refId = document.getElementById('referralId').value || '無';
-
-            const formData = new FormData(form);
-
-            try {
-                await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead');
-                }
-
-                const textToCopy = `【金名預約報名】\n學生：${sName}\n家長：${pName}\n學校：${school}\n電話：${phone}\n來源：${source}\n編號：${refId}`;
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
                 
-                const tempTextArea = document.createElement('textarea');
-                tempTextArea.value = textToCopy;
-                document.body.appendChild(tempTextArea);
-                tempTextArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempTextArea);
+                submitBtn.disabled = true;
+                btnText.innerText = "資料傳送中...";
+                
+                const sName = document.getElementById('studentName').value;
+                const pName = document.getElementById('parentName').value;
+                const school = document.getElementById('school').value;
+                const phone = document.getElementById('phone').value;
+                const source = document.querySelector('input[name="資訊來源"]:checked')?.value || '未選取';
+                const refId = document.getElementById('referralId').value || '無';
 
-                toast.style.opacity = '1';
-                setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+                const formData = new FormData(form);
 
-                setTimeout(() => {
-                    window.location.href = "https://line.me/ti/p/vQcf6cONnl";
-                }, 1500);
+                try {
+                    await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
 
-            } catch (err) {
-                btnText.innerText = "提交失敗，請重試";
-                submitBtn.disabled = false;
-            }
-        });
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead');
+                    }
 
-        window.onload = () => renderSchedule(6);
+                    const textToCopy = `【金名預約報名】\n學生：${sName}\n家長：${pName}\n學校：${school}\n電話：${phone}\n來源：${source}\n編號：${refId}`;
+                    
+                    const tempTextArea = document.createElement('textarea');
+                    tempTextArea.value = textToCopy;
+                    document.body.appendChild(tempTextArea);
+                    tempTextArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextArea);
+
+                    toast.style.opacity = '1';
+                    setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+
+                    setTimeout(() => {
+                        window.location.href = "https://line.me/ti/p/vQcf6cONnl";
+                    }, 1500);
+
+                } catch (err) {
+                    btnText.innerText = "提交失敗，請重試";
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        window.onload = () => switchGrade(7);
     </script>
 </body>
 </html>
